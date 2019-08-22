@@ -13368,6 +13368,10 @@ https://www.google.com/
 <span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
         <span class="k">pass</span>
+    <span class="k">elif</span> <span class="ow">not</span> <span class="n">x</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;https://raw.githubusercontent.com/JoseMontanaC/Laboratorio-Metodos-Computacionales/master&quot;</span><span class="p">):</span>
+        <span class="k">pass</span>
+    <span class="k">elif</span> <span class="ow">not</span> <span class="n">x</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.png&quot;</span><span class="p">):</span>
+        <span class="k">pass</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&lt;a href=&quot;&#39;</span><span class="o">+</span><span class="n">x</span><span class="o">+</span><span class="s1">&#39;&quot;&gt;&lt;center&gt;&lt;font color=hsl(9, 100%, 64%) size=&quot;5&quot; face =&quot;consolas&quot;&gt;Link to the Photo&lt;/font&gt;&lt;/center&gt;&lt;/a&gt;&#39;</span><span class="p">))</span>
         <span class="n">display</span><span class="p">(</span><span class="n">Image</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">x</span><span class="p">))</span>
