@@ -13208,6 +13208,7 @@ div#notebook {
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># nbi:hide_in</span>
 <span class="kn">from</span> <span class="nn">itertools</span> <span class="k">import</span> <span class="n">cycle</span>
 <span class="k">def</span> <span class="nf">Encrypt_message</span><span class="p">(</span><span class="n">message</span><span class="p">,</span><span class="n">key</span><span class="p">):</span>
+    <span class="n">message</span><span class="o">=</span><span class="n">message</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
     <span class="n">characters</span><span class="o">=</span><span class="s1">&#39;1234567890/-_%?\*.:abcdefghijklmnopqrstuvwxyz!&quot;#$&amp;+@|¨~&#39;</span>
     <span class="n">Encrypt</span><span class="o">=</span><span class="nb">dict</span><span class="p">((</span><span class="n">c</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">characters</span><span class="p">))</span>
     <span class="n">Decrypt</span><span class="o">=</span><span class="nb">dict</span><span class="p">((</span><span class="n">i</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">characters</span><span class="p">))</span>
@@ -13230,20 +13231,57 @@ div#notebook {
 </div>
 
   </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Examples:">Examples:<a class="anchor-link" href="#Examples:">&#182;</a></h1>
+</div>
+</div>
+</div>
 
   
 
-  <div class="
+  <div class="nbinteract-hide_in
       cell border-box-sizing code_cell rendered">
     <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Encrypt_message(&quot;https://github.com&quot;,136)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Message encrypted:&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">Encrypt_message</span><span class="p">(</span><span class="s1">&#39;https://www.codewars.com/kata/digital-cypher/solutions/python/all/clever&#39;</span><span class="p">,</span><span class="mi">136597896</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Message decrypted:&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">Decrypt_message</span><span class="p">(</span><span class="s1">&#39;iwzu&quot;g:a#xzehxkm+gsvehxt:tgud*irnq#gm?i$yom!*trrz#pwwy-s&amp;yqvvagmo*hul$nx&#39;</span><span class="p">,</span><span class="mi">136597896</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># nbi:hide_in</span>
+<span class="n">key</span><span class="o">=</span><span class="mi">136597896</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Message encrypted with key </span><span class="si">{}</span><span class="s2">:&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">),</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">encrypted_messsage</span><span class="o">=</span><span class="n">Encrypt_message</span><span class="p">(</span><span class="s1">&#39;https://www.google.com/&#39;</span><span class="p">,</span><span class="n">key</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">encrypted_messsage</span><span class="p">,</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="mi">50</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Message decrypted with key </span><span class="si">{}</span><span class="s2">:&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">),</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Decrypt_message</span><span class="p">(</span><span class="n">encrypted_messsage</span><span class="p">,</span><span class="n">key</span><span class="p">))</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">+</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="mi">50</span><span class="o">+</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">key</span><span class="o">=</span><span class="mi">569842</span>
+<span class="n">encrypted_messsage</span><span class="o">=</span><span class="n">Encrypt_message</span><span class="p">(</span><span class="s1">&#39;https://www.google.com/&#39;</span><span class="p">,</span><span class="n">key</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Message encrypted with key </span><span class="si">{}</span><span class="s2">:&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">),</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">encrypted_messsage</span><span class="p">,</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="mi">50</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Message decrypted with key </span><span class="si">{}</span><span class="s2">:&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">),</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Decrypt_message</span><span class="p">(</span><span class="n">encrypted_messsage</span><span class="p">,</span><span class="n">key</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">+</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="mi">50</span><span class="o">+</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">key</span><span class="o">=</span><span class="mi">79009897</span>
+<span class="n">encrypted_messsage</span><span class="o">=</span><span class="n">Encrypt_message</span><span class="p">(</span><span class="s1">&#39;https://www.google.com/&#39;</span><span class="p">,</span><span class="n">key</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Message encrypted with key </span><span class="si">{}</span><span class="s2">:&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">),</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">encrypted_messsage</span><span class="p">,</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="mi">50</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Message decrypted with key </span><span class="si">{}</span><span class="s2">:&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">),</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Decrypt_message</span><span class="p">(</span><span class="n">encrypted_messsage</span><span class="p">,</span><span class="n">key</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">+</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="mi">50</span><span class="o">+</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">key</span><span class="o">=</span><span class="mi">649875004556883</span>
+<span class="n">encrypted_messsage</span><span class="o">=</span><span class="n">Encrypt_message</span><span class="p">(</span><span class="s1">&#39;https://www.google.com/&#39;</span><span class="p">,</span><span class="n">key</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Message encrypted with key </span><span class="si">{}</span><span class="s2">:&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">),</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">encrypted_messsage</span><span class="p">,</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="mi">50</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Message decrypted with key </span><span class="si">{}</span><span class="s2">:&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">),</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Decrypt_message</span><span class="p">(</span><span class="n">encrypted_messsage</span><span class="p">,</span><span class="n">key</span><span class="p">))</span>
 </pre></div>
 
     </div>
@@ -13259,12 +13297,94 @@ div#notebook {
     
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Message encrypted:
-iwzu&#34;g:a#xzehxkm+gsvehxt:tgud*irnq#gm?i$yom!*trrz#pwwy-s&amp;yqvvagmo*hul$nx
-Message decrypted:
-https://www.codewars.com/kata/digital-cypher/solutions/python/all/clever
+<pre>Message encrypted with key 136597896: 
+
+iwzu&#34;g:a#xzelxvouk:fura 
+
+--------------------------------------------------
+Message decrypted with key 136597896: 
+
+https://www.google.com/
+
+--------------------------------------------------
+
+Message encrypted with key 569842: 
+
+mz#xwb\*+&amp;!aluxopgdixu? 
+
+--------------------------------------------------
+Message decrypted with key 569842: 
+
+https://www.google.com/
+
+--------------------------------------------------
+
+Message encrypted with key 79009897: 
+
+o#tp&#34;ha.$+w.pwxnsn.cxua 
+
+--------------------------------------------------
+Message decrypted with key 79009897: 
+
+https://www.google.com/
+
+--------------------------------------------------
+
+Message encrypted with key 649875004556883: 
+
+nx#xze//!&#34;&#34;eowrmpngjtm/ 
+
+--------------------------------------------------
+Message decrypted with key 649875004556883: 
+
+https://www.google.com/
 </pre>
 </div>
+</div>
+
+</div>
+</div>
+
+  </div>
+
+  
+
+  <div class="nbinteract-hide_in
+      cell border-box-sizing code_cell rendered">
+    <div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># nbi:hide_in</span>
+<span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+        <span class="k">pass</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&lt;a href=&quot;&#39;</span><span class="o">+</span><span class="n">x</span><span class="o">+</span><span class="s1">&#39;&quot;&gt;Download Photo&lt;/a&gt;&#39;</span><span class="p">))</span>
+<span class="n">direccion</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;URL:&#39;</span><span class="p">)</span>
+<span class="n">widgets</span><span class="o">.</span><span class="n">interact</span><span class="p">(</span><span class="n">g</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="n">direccion</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    
+
+
+
+  <div class="output_subarea output_widget_view ">
+    <button class="js-nbinteract-widget">
+      Loading widgets...
+    </button>
+  </div>
+
 </div>
 
 </div>
