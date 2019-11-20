@@ -54,7 +54,7 @@ int main(int argc, char** argv)
       if(t_modulo>3*M_PI)
 	{
 	  t_modulo=0;
-	  std::cout<<p.Theta<<'\t'<<p.W<<std::endl;
+	  std::cout<<t<<"\t"<<p.Theta<<'\t'<<p.W<<std::endl;
 	}
       
     }
@@ -81,7 +81,7 @@ void euler_cromer(Pendulum & p,double dt,double t)
 void initial_conditions(Pendulum & p)
 {
   p.q=0.5;
-  p.Fd=1.9;
+  p.Fd=1.3;
   p.Omega=0.666;
   p.L=G;
   p.W=0.0;
